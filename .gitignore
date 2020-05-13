@@ -1,0 +1,13 @@
+.DS_Store
+yarn-error.log
+
+# Dependency directories
+node_modules
+
+# Serverless
+.webpack
+.serverless
+
+# env
+env.yml
+.env
