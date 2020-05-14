@@ -1,3 +1,5 @@
+org: pnarielwala
+app: graphql-nodejs-app
 # NOTE: update this with your service name
 service: graphql-nodejs
 
@@ -29,7 +31,7 @@ functions:
           path: graphql
           method: post
           cors: true
+          integration: lambda-proxy
       - http:
           path: graphql
           method: get
-          cors: true
