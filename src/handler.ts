@@ -4,43 +4,10 @@ import { ApolloServer, gql } from 'apollo-server-lambda'
 import resolvers from './resolvers'
 import { APIGatewayEvent, Callback, Context } from 'aws-lambda'
 
-const typeDefs = gql`
-  type User {
-    UUID: String
-    Name: String
-    Posts: [Post]
-  }
-
-  type Post {
-    UUID: String
-    Text: String
-  }
-
-  input UserInput {
-    Name: String
-    Posts: [PostInput]
-  }
-
-  input PostInput {
-    Text: String
-  }
-
-  type Mutation {
-    createUser(input: UserInput!): User
-  }
-
-  type Query {
-    getUser(uuid: String!): User
-  }
-
-  schema {
-    query: Query
-    mutation: Mutation
-  }
-`
+import schema from './schema'
 
 const server = new ApolloServer({
-  typeDefs,
+  typeDefs: schema,
   resolvers,
   formatError: (error) => {
     // console.log(error)

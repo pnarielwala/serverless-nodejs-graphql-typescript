@@ -4,7 +4,7 @@
   "description": "A GraphQL Node.js starter for the Serverless Framework with async/await and unit test support",
   "main": "handler.js",
   "scripts": {
-    "start": "serverless offline start",
+    "start": "npx env-cmd --file .env.local serverless offline start",
     "deploy": "sls deploy",
     "test": "jest"
   },
@@ -21,6 +21,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
+    "env-cmd": "^10.1.0",
     "jest": "^21.2.1",
     "serverless-offline": "^3.25.6",
     "serverless-plugin-typescript": "^1.1.9",
@@ -32,11 +33,15 @@
   "dependencies": {
     "apollo-server-lambda": "^2.5.0",
     "babel-runtime": "^6.26.0",
+    "camelcase": "^6.0.0",
     "faker": "^4.1.0",
     "graphql": "^14.3.0",
     "graphql-playground-middleware-lambda": "^1.7.15",
     "graphql-tools": "^5.0.0",
-    "pg": "^8.1.0",
+    "knex": "^0.21.1",
+    "knex-stringcase": "^1.4.1",
+    "pg": "^8.2.0",
+    "snake-case": "^3.0.3",
     "source-map-support": "^0.4.18",
     "typescript": "^3.9.2"
   }

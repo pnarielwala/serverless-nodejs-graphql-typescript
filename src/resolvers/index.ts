@@ -1,16 +1,14 @@
-import { getUser } from './query'
-import { createUser } from './mutation'
-import { Context, APIGatewayEvent } from 'aws-lambda'
-import { IDelegateToSchemaOptions } from 'apollo-server-lambda'
+import { getUser, getUserTweets } from './query'
+import { createUser, createTweet } from './mutation'
 
 const resolvers = {
   Query: {
-    getUser: (_: {} | undefined, args: { uuid: string }) => getUser(args),
+    getUser,
+    getUserTweets,
   },
   Mutation: {
-    createUser: (_, args: { input: { Name: string; Posts: any[] } }) => {
-      return createUser(args)
-    },
+    createUser,
+    createTweet,
   },
 }
 

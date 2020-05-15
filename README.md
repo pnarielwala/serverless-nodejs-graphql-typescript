@@ -30,3 +30,16 @@ As a frontend engineer, I don't have much experience with backend services, let 
 This took a lot of tinkering, then a night of sleep, then more tinkering.
 
 [WIP]
+
+-> Serverless config
+-> serverless-offline
+-> serverless-webpack
+-> webpack.config.js
+
+-> tsconfig.json
+
+-> handler.ts
+-> query.ts
+-> mutation.ts
+
+-> serverless offline start
