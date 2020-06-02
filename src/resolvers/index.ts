@@ -1,14 +1,12 @@
-import { getUser, getUserTweets } from './query'
-import { createUser, createTweet } from './mutation'
+import { getTodos } from './query'
+import { createTodo } from './mutation'
 
 const resolvers = {
   Query: {
-    getUser,
-    getUserTweets,
+    getTodos,
   },
   Mutation: {
-    createUser,
-    createTweet,
+    createTodo: async (_, args) => await createTodo(args),
   },
 }
 

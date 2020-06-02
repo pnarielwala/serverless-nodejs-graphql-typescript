@@ -14,8 +14,6 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
-  serverless-offline:
-    port: 4000
 
 provider:
   name: aws

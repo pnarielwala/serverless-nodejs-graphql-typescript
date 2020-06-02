@@ -1,38 +1,22 @@
 import { gql } from 'apollo-server-lambda'
 
 const schema = gql`
-  type User {
+  type Todo {
     id: ID!
-    firstName: String!
-    lastName: String!
-    email: String!
+    body: String!
+    completed: Boolean!
   }
 
-  type Tweet {
-    id: ID!
-    text: String!
-    userId: ID!
-  }
-
-  input UserInput {
-    firstName: String!
-    lastName: String!
-    email: String!
-  }
-
-  input TweetInput {
-    text: String!
-    userId: ID!
-  }
-
-  type Mutation {
-    createUser(input: UserInput!): User!
-    createTweet(input: TweetInput): Tweet!
+  input TodoInput {
+    body: String!
   }
 
   type Query {
-    getUser(email: String!): User!
-    getUserTweets(id: ID!): [Tweet]
+    getTodos: [Todo!]
+  }
+
+  type Mutation {
+    createTodo(input: TodoInput!): Todo!
   }
 
   schema {
