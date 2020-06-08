@@ -15,6 +15,10 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+  dotenv:
+    exclude:
+      - AWS_ACCESS_KEY
+      - AWS_SECRET_KEY
 
 provider:
   name: aws
