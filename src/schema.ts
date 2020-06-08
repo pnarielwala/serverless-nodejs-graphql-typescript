@@ -17,11 +17,8 @@ const schema = gql`
 
   type Mutation {
     createTodo(input: TodoInput!): Todo!
-  }
-
-  schema {
-    query: Query
-    mutation: Mutation
+    deleteTodo(id: String!): ID!
+    completeTodo(id: String!): ID!
   }
 `
 

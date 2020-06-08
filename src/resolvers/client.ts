@@ -11,11 +11,12 @@ const client = knex({
     database: process.env.DB_NAME,
   },
   postProcessResponse: (result, queryContext) => {
-    // TODO: add special case for raw results (depends on dialect)
     if (Array.isArray(result)) {
       return result.map((row) => convertToCamel(row))
-    } else {
+    } else if (typeof result === 'object') {
       return convertToCamel(result)
+    } else {
+      return result
     }
   },
 })

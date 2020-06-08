@@ -24,7 +24,3 @@ and tools?
 As a frontend engineer, I don't have much experience with backend services, let alone how to set one up, but a coworker told me about [Serverless](https://www.serverless.com/) and how it makes it easy to setup a backend service with AWS.
 
 [insert info on serverless]
-
-## Get offline playground working
-
-This took a lot of tinkering, then a night of sleep, then more tinkering.
