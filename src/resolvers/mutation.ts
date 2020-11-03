@@ -1,39 +1,32 @@
-import faker from 'faker'
-import client from './client'
-import { convertToSnake } from '../utils'
+// import faker from 'faker'
+import { TodoClient } from './client'
 import { TodoInput, Todo } from 'generated/graphql'
+import { v4 as uuidv4 } from 'uuid'
 
 export const createTodo = async (input: TodoInput): Promise<Todo> => {
-  return (
-    await client
-      .insert(convertToSnake(input))
-      .into<Todo>('todos')
-      .returning('*')
-  )[0]
+  const newTodo = new TodoClient({
+    id: uuidv4(),
+    completed: false,
+    ...input,
+  })
+
+  return await newTodo.save().then((data) => data.toJSON() as Todo)
 }
 
 export const deleteTodo = async (id: string) => {
-  const numRowsAffected = await client.from<Todo>('todos').where({ id }).del()
-
-  if (!numRowsAffected) {
+  try {
+    await TodoClient.delete({ id })
+    return id
+  } catch (e) {
     throw 'No todos have been deleted!'
   }
-
-  return id
 }
 
 export const completeTodo = async (id: string) => {
   try {
-    const { id: completedTodoId } = await client
-      .from<Todo>('todos')
-      .where('id', id)
-      .update<'id', Pick<Todo, 'id'>>({ completed: true }, ['id'])
+    await TodoClient.update({ id }, { completed: true })
 
-    if (!completedTodoId) {
-      throw 'Unable to complete todo item'
-    }
-
-    return completedTodoId
+    return id
   } catch (e) {
     throw e
   }

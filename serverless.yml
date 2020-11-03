@@ -7,7 +7,6 @@ service: graphql-nodejs
 plugins:
   - serverless-webpack
   - serverless-offline
-  - serverless-dotenv-plugin
 
 # serverless-webpack configuration
 # Enable auto-packing of external modules
@@ -15,16 +14,24 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
-  dotenv:
-    exclude:
-      - AWS_ACCESS_KEY
-      - AWS_SECRET_KEY
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        # Dynamoose uses DescribeTable ensure the table doesn't already exist.
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/Todos'
 
 functions:
   graphql:
@@ -38,3 +45,19 @@ functions:
       - http:
           path: graphql
           method: get
+resources:
+  Resources:
+    TodosTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: Todos

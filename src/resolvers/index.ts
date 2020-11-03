@@ -1,10 +1,10 @@
 import { getTodos } from './query'
-import { createTodo, deleteTodo, completeTodo } from './mutation'
+import { createTodo, completeTodo, deleteTodo } from './mutation'
 import { Resolvers } from 'generated/graphql'
 
 const resolvers: Resolvers = {
   Query: {
-    getTodos,
+    getTodos: getTodos,
   },
   Mutation: {
     createTodo: async (_, { input }) => await createTodo(input),
