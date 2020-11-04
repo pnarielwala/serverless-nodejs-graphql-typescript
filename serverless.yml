@@ -6,11 +6,19 @@ service: graphql-nodejs
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
   - serverless-webpack
+  - serverless-dynamodb-local
   - serverless-offline
 
-# serverless-webpack configuration
-# Enable auto-packing of external modules
 custom:
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8001
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
