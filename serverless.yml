@@ -1,5 +1,5 @@
 org: pnarielwala
-app: graphql-nodejs-app
+app: todo-app
 # NOTE: update this with your service name
 service: graphql-nodejs
 
