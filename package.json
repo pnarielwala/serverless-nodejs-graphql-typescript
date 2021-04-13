@@ -37,7 +37,7 @@
     "apollo-server-lambda": "2.18.1",
     "camelcase": "^6.0.0",
     "dynamoose": "^2.3.0",
-    "faker": "^4.1.0",
+    "faker": "^5.0.0",
     "graphql": "15.1.0",
     "knex-stringcase": "^1.4.1",
     "snake-case": "^3.0.3",
