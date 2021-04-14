@@ -34,7 +34,7 @@
     "webpack-node-externals": "2.5.2"
   },
   "dependencies": {
-    "apollo-server-lambda": "2.18.1",
+    "apollo-server-lambda": "2.18.2",
     "camelcase": "^6.0.0",
     "dynamoose": "^2.3.0",
     "faker": "^4.1.0",
