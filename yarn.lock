@@ -3536,6 +3536,14 @@ chalk@^4.0.0, chalk@^4.1.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 char-regex@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
@@ -4506,6 +4514,11 @@ dotenv-expand@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
+
+dotenv@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
+  integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
 dotenv@^8.2.0:
   version "8.2.0"
@@ -9766,13 +9779,13 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-serverless-dotenv-plugin@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/serverless-dotenv-plugin/-/serverless-dotenv-plugin-3.0.0.tgz#64663f4b66c8673869d34a1ac61c8097577d7cf6"
-  integrity sha512-/4hra5d7nuCZn0q1aCGVHsE/2sQhhlQj8+thn5ruWo7fDubuxUTHmKQAvi7PfrWTmROHUOCsb7FjuUFGcGa3Dw==
+serverless-dotenv-plugin@3.12.2:
+  version "3.12.2"
+  resolved "https://registry.yarnpkg.com/serverless-dotenv-plugin/-/serverless-dotenv-plugin-3.12.2.tgz#e3f70ba706f3525d4d838114ccdcedb22e1bf13e"
+  integrity sha512-uyukgQkZCWu+Kee+E0XQEmPlMWHHEEN+T9Kp+77VwZx4B3nfjIwd6rEyi5hCiqk1+RqBMc9NME3NP94b04dQFg==
   dependencies:
-    chalk "^4.1.0"
-    dotenv "^8.2.0"
+    chalk "^4.1.2"
+    dotenv "^10.0.0"
     dotenv-expand "^5.1.0"
 
 serverless-dynamodb-local@0.2.39:
